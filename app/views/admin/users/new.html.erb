@@ -1,0 +1,43 @@
+<h2 class="text-center">Sign a user up</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-md-offset-4 col-md-4">
+      <%= form_for [:admin, @user] do |f| %>
+        <% if @user.errors.any? %>
+          <div>
+            <h4 class="text-center"><%= pluralize(@user.errors.count, "error") %> ocurred:</h4>
+            <ul>
+              <% @user.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <div>
+          <%= f.label "email" %>
+          <%= f.text_field "email", class: "form-control" %>
+        </div>
+        <div>
+          <%= f.label "firstname", "First Name" %>
+          <%= f.text_field "firstname", class: "form-control" %>
+        </div>
+        <div>
+          <%= f.label "lastname", "Last Name" %>
+          <%= f.text_field "lastname", class: "form-control" %>
+        </div>
+        <div>
+          <%= f.label "password" %>
+          <%= f.password_field "password", class: "form-control" %>
+        </div>
+        <div>
+          <%= f.label "password_confirmation" %>
+          <%= f.password_field "password_confirmation", class: "form-control" %>
+        </div>
+        <div>
+          <%= f.label "admin" %><%= f.check_box "admin" %>
+        </div>
+        <div><%= f.submit "Submit", class: "btn btn-submit btn-margin" %></div>
+      <% end %>
+    </div>
+  </div>
+</div>

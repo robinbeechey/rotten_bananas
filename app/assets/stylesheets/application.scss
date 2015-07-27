@@ -1,0 +1,148 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+*/
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.search_row {
+  background-color:#cdff99;
+  margin-bottom: 10px;
+  box-shadow: 2px 2px 2px #7aaa47;
+  padding:10px 0 10px 0;
+}
+
+label {
+  padding-top: 5px;
+}
+
+p {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.btn-submit {
+  background-color: #74ea4d;
+  box-shadow: 2px 2px 2px #7aaa47;
+}
+
+.btn-delete {
+  background-color: #e22f2f;
+  box-shadow: 2px 2px 2px #a00c0c; 
+}
+
+.btn-delete:hover {
+  background-color: #a00c0c; 
+}
+
+.btn-submit:hover {
+ background-color: #32c900;
+}
+
+.btn-margin {
+  margin-top:10px;
+}
+
+.profile-img {
+  border-radius:50%;
+  width:250px;
+  height:250px;
+  box-shadow: 2px 2px 2px #7aaa47;
+  background-color: #b7ffa3;
+}
+
+.movie_post_box {
+  background-color: #b7ffa3;
+  padding-top:15px;
+  width: 395px;
+  margin: 5px;
+  box-shadow: 2px 2px 2px #7aaa47;
+}
+
+.poster-margin {
+  margin-bottom:5px;
+}
+
+a {
+  color: #333333;
+}
+
+.movie-title {
+  color: #6b3e08;
+}
+
+
+.movie-title:hover {
+  text-decoration:none;
+}
+
+body {
+  background-color: #ffffa3;
+}
+
+.row-margin {
+  margin-left: -40px;
+  margin-right: -40px;
+}
+
+
+
+.logo {
+  font-family: 'Bangers', cursive;
+  font-size: 3.5em;
+}
+
+.review-block {
+  margin-top:10px;
+  background-color: #b7ffa3;
+  box-shadow: 2px 2px 2px #7aaa47;
+}
+
+.movie-profile {
+  background-color: #b7ffa3;
+  box-shadow: 2px 2px 2px #7aaa47;
+  padding: 10px 0 10px 0;
+}
+
+
+
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+color: white;  /*Sets the text hover color on navbar*/
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active >   
+ a:hover, .navbar-default .navbar-nav > .active > a:focus {
+  color: white; /*BACKGROUND color for active*/
+  background-color: #030033;
+}
+
+  .navbar-default {
+    background-color: #a1ff84;
+}
+
+  .dropdown-menu > li > a:hover,
+   .dropdown-menu > li > a:focus {
+    color: white;
+   text-decoration: none;
+  background-color: white;  /*change color of links in drop down here*/
+   }
+
+ .nav > li > a:hover,
+ .nav > li > a:focus {
+    text-decoration: none;
+    background-color: silver; /*Change rollover cell color here*/
+  }
+
+
+  .navbar-default .navbar-nav > li > a {
+   color: #269b00;
+   font-size:1.1em; /*Change active text color here*/
+    }

@@ -1,0 +1,43 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+    <%= link_to "Create New User", new_admin_user_path, method: :get, class: "btn btn-info" %>
+    </div>
+  </div>
+
+  <h2 class="text-center">Users</h2>
+    <div class="row">
+        <table class="table table-hover"> 
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Admin</th> 
+            <th>Created</th> 
+            <th>Updated</th>  
+            <th>Delete/Edit</th>            
+          </tr>
+        </thead>
+        <tbody>
+          
+          <% @users.each do |user| %>
+            <tr>
+              <th scope="row"><%= user.id %></th>
+              <td><%= user.full_name %></td>
+              <td><%= user.email %></td>
+              <td><%= user.admin %></td>
+              <td><%= user.created_at %></td>
+              <td><%= user.updated_at %></td>
+              <td style="display: -webkit-inline-box;">
+              <%= link_to "edit", edit_admin_user_path(user.id), method: :get, class: "btn btn-submit", style: "margin-right: 4px;" %> 
+              <%= link_to "delete", admin_user_path(user.id), method: :delete, confirm: "You sure?", class: "btn btn-delete" %>
+              </td>
+            </tr>  
+          <% end %>          
+        </tbody>
+      </table>
+    
+  </div>
+</div>

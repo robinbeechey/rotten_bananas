@@ -1,0 +1,32 @@
+<h1 class="logo text-center">Rotten Bananas</h1>
+<div class="container">
+  <div class="row search_row">
+
+        <div class="col-md-offset-2 col-md-4">
+          <div class="col-md-2">
+          <%= form_tag movies_path, :method => 'get' do %>        
+          <label>Search</label>
+          </div>
+          <div class="col-md-10">
+           <%= text_field_tag :search, params[:search], class: "form-control" %>
+           </div>
+        </div>
+        <div class="col-md-4">
+          <div class="col-md-2">
+            <label>Duration</label>
+          </div>
+          <div class="col-md-8">
+           <%= select_tag(:option, options_for_select([['Under 90 min', 90], ['Between 90 & 120 min', "medium" ], ['Over 120 min', 120 ]], selected: :option ), class: "form-control") %>
+          </div>
+          <div class="col-md-2">
+            <%= submit_tag "Submit", :name => nil, class: "btn-submit btn" %>
+          </div>
+        </div>
+
+        <% end %>
+  </div>
+      <%= render 'movie' %>
+</div>
+
+
+

@@ -1,0 +1,25 @@
+<div class="container">
+  <h4 class="text-center">Profile Page</h4>
+  <div class="poster-margin row">
+    <div class="col-md-offset-3 col-md-3">      
+        <div class="profile-img"></div>      
+    </div>
+    <div class="text-center col-md-3">
+      <h1><%= @user.full_name %></h1>
+      <p><%= @user.email %></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-offset-2 col-md-8">
+      <% @user.reviews.each do |review| %>
+      <div class="text-center col-md-offset-2 col-md-8">
+        <h4><%= link_to review.text, movie_path(review.movie_id) %></h4>
+        <p><%= review.rating_out_of_ten %>/10</p>
+      </div>
+      <% end %>
+    </div>
+  </div>
+
+</div>
+

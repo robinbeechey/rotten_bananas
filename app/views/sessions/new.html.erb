@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <h2 class="text-center">Login</h2>
+    <%= form_tag session_path do %>
+    <div class="col-md-offset-4 col-md-4">
+      <div>
+        <%= label_tag "email" %><br/>
+          <%= text_field_tag "email", nil, class: "form-control" %>
+      </div>
+      <div>
+        <%= label_tag :password %><br/>
+        <%= password_field_tag :password, nil, class: "form-control" %>
+      </div>
+      <div>
+        <%= submit_tag "Login", class: "btn btn-submit btn-margin" %>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</div>

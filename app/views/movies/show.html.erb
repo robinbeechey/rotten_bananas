@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="movie-profile row">
+    <div class="col-md-offset-2 col-md-4">
+      <div class="col-md-offset-2 col-md-8">
+        <%= image_tag @movie.poster_image_url_url(:thumb) %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <h2><%= @movie.title %></h2>
+      <h4> <%= link_to "edit", edit_movie_path(@movie), class: "btn btn-info" %>  <%= link_to "delete", movie_path(@movie), method: :delete, confirm: "You sure?", class: "btn btn-danger" %></h4>
+
+      <h3><%= formatted_date(@movie.release_date) %></h3>
+      <h4>Dir. <%= @movie.director %> | <%= @movie.runtime_in_minutes %> minutes</h4>
+      <p><%= @movie.description %></p>
+      <p><%= @movie.review_average %>/10</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-offset-2 col-md-8">
+      <h3>Reviews of <em><%= @movie.title %></em></h3>
+      <% if current_user %>
+        <% @movie.reviews.each do |review| %>
+          <% if review.user %>
+          <div class="text-center col-md-6">
+            <div class="review-block col-md-offset-1 col-md-10">
+              <p><%= review.text %></p>
+              <p><%= review.rating_out_of_ten %>/10</p>
+              <p><%= link_to review.user.full_name, user_path(review.user)  %></p>
+            </div>
+          </div>
+          <% end %>
+        <% end %>
+        <p><%= link_to "Write a review!", new_movie_review_path(@movie) %></p>
+      <% else %>
+        <p>Please <%= link_to "log in", new_session_path %> to see reviews and add your own.</p> 
+      <% end %>
+    </div>
+  </div>
+
+</div>
