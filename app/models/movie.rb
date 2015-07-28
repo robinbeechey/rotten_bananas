@@ -6,9 +6,9 @@ class Movie < ActiveRecord::Base
   validates :runtime_in_minutes,
         numericality: { only_integer: true }
   validates :description, presence: true
-  validates :poster_image_url, presence: true
   validates :release_date, presence: true
   validate :release_date_is_in_the_future
+  validate :one_form_of_image_required
 
   mount_uploader :poster_image_url, ImageUploader
 
@@ -49,6 +49,12 @@ class Movie < ActiveRecord::Base
 
 
   protected 
+
+  def one_form_of_image_required
+    if !image_url.present? && !poster_image_url.present?
+      errors.add(:image_url, "Please upload an image or give an image url")
+    end
+  end
 
   def release_date_is_in_the_future
     if release_date.present?

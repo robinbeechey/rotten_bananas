@@ -20,6 +20,13 @@
   padding:10px 0 10px 0;
 }
 
+.image-size {
+  min-width: 275px;
+  max-width: 500px;
+  max-height: 750px;
+  height: 390px;
+}
+
 label {
   padding-top: 5px;
 }

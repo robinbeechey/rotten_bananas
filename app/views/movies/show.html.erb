@@ -2,7 +2,7 @@
   <div class="movie-profile row">
     <div class="col-md-offset-2 col-md-4">
       <div class="col-md-offset-2 col-md-8">
-        <%= image_tag @movie.poster_image_url_url(:thumb) %>
+        <%= image_tag(@movie.image_url ? @movie.image_url : @movie.poster_image_url_url(:thumb), class: "image-size") %>
       </div>
     </div>
     <div class="col-md-4">

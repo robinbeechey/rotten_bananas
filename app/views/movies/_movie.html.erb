@@ -2,7 +2,7 @@
   <% @movies.each do |movie| %>
       <div class="movie_post_box col-xs-6 col-sm-4">
         <div class="image_center col-sm-12">
-        <%= link_to image_tag(movie.poster_image_url_url(:thumb), class: "poster-margin img-responsive center-block"), movie_path(movie) %>
+        <%= link_to image_tag(movie.image_url ? movie.image_url : movie.poster_image_url_url(:thumb), class: "poster-margin img-responsive center-block image-size"), movie_path(movie) %>
         </div>
         <div class="text-center">
           <h4><%= link_to movie.title, movie_path(movie), class: "movie-title" %></h4>
