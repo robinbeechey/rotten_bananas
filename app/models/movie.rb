@@ -19,9 +19,9 @@ class Movie < ActiveRecord::Base
   end
 
   scope :by_title_or_director, -> (search) { where('title OR director LIKE ?', "%#{search}%") }
-  scope :by_duration_short, -> (option) { where('runtime_in_minutes < ?', option) }
-  scope :by_duration_medium, -> (duration) { where('runtime_in_minutes BETWEEN 90 AND 120') }
-  scope :by_duration_long, -> (option) { where('runtime_in_minutes > ?', "#{option}") }
+  scope :by_duration_short, -> { where("runtime_in_minutes < 90") }
+  scope :by_duration_medium, -> { where("runtime_in_minutes BETWEEN 90 AND 120") }
+  scope :by_duration_long, -> { where("runtime_in_minutes > 120") }
 
 
   # def self.by_title(title)
@@ -36,12 +36,12 @@ class Movie < ActiveRecord::Base
     end
 
     case option
-    when '90'
-      movies = movies.by_duration_short(option)
-    when 'medium'
-      movies = movies.by_duration_medium(option)
-    when '120'
-      movies = movies.by_duration_long(option)
+    when 1
+      movies = movies.by_duration_short
+    when 2
+      movies = movies.by_duration_medium
+    when 3
+      movies = movies.by_duration_long
     end
 
     movies
