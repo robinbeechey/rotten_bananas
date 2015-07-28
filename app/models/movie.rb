@@ -32,7 +32,7 @@ class Movie < ActiveRecord::Base
     movies = Movie.all
 
     if !search.blank?
-      movies = movies.by_title_or_director(search)
+      movies = movies.by_title_or_director(search.to_s)
     end
     case option.to_s.to_i
 
