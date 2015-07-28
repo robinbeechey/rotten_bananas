@@ -18,7 +18,7 @@ class Movie < ActiveRecord::Base
     end
   end
 
-  scope :by_title_or_director, -> (search) { where('title OR director LIKE ?', "%#{search}%") }
+  scope :by_title_or_director, -> (search) { where('title LIKE ? OR director LIKE ?', "%#{search}%", "%#{search}%") }
   scope :by_duration_short, -> { where("runtime_in_minutes < 90") }
   scope :by_duration_medium, -> { where("runtime_in_minutes BETWEEN 90 AND 120") }
   scope :by_duration_long, -> { where("runtime_in_minutes > 120") }
@@ -32,7 +32,7 @@ class Movie < ActiveRecord::Base
     movies = Movie.all
 
     if !search.blank?
-      movies = movies.by_title_or_director(search.to_s)
+      movies = movies.by_title_or_director(search)
     end
     case option.to_s.to_i
 
