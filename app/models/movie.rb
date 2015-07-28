@@ -34,8 +34,8 @@ class Movie < ActiveRecord::Base
     if !search.blank?
       movies = movies.by_title_or_director(search)
     end
+    case option.to_s.to_i
 
-    case option
     when 1
       movies = movies.by_duration_short
     when 2
